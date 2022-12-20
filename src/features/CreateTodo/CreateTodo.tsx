@@ -1,4 +1,5 @@
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import { nanoid } from 'nanoid';
 import * as React from 'react';
 
 import { useTodosActions } from '~/stores/todos';
@@ -12,17 +13,17 @@ export function CreateTodo() {
 
     if (!inputRef?.current?.value) return;
 
-    addTodo({ title: inputRef.current.value });
+    addTodo({ title: inputRef.current.value, id: nanoid() });
     inputRef.current.value = '';
   };
 
   return (
-    <div className="w-fit mx-auto p-3 rounded border bg-gray-200 border-gray-900/50 ">
+    <div className="max-w-xl mx-auto rounded border bg-gray-200 border-gray-900 overflow-hidden">
       <form onSubmit={handleTodo} className="flex items-center relative">
         <input
           type="text"
           placeholder="Add item"
-          className="pl-2 pr-6 py-1 outline-none w-fill"
+          className="pl-3 pr-6 py-3 outline-none w-full"
           ref={inputRef}
         />
         <button type="submit" className="absolute right-2">
