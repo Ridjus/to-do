@@ -1,13 +1,9 @@
 import { XCircleIcon } from '@heroicons/react/24/outline';
 
 import { useTodosActions } from '~/stores/todos';
+import { TodoInterface } from '~/types';
 
-interface Todo {
-  id: string;
-  title: string;
-}
-
-export function Todo({ id, title }: Todo) {
+export function Todo({ id, title }: TodoInterface) {
   const { removeTodo } = useTodosActions();
 
   const handleRemove = () => {
