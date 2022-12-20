@@ -1,15 +1,15 @@
 import create from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { TodoInterface } from '~/types';
+import { TodoInterface as Todo } from '~/types';
 
 interface State {
-  todos: TodoInterface[];
+  todos: Todo[];
 }
 
 interface Actions {
   actions: {
-    addTodo: (todo: TodoInterface) => void;
+    addTodo: (todo: Todo) => void;
     removeTodo: (id: string) => void;
   };
 }
