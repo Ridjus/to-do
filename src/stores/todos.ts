@@ -11,6 +11,7 @@ interface Actions {
   actions: {
     addTodo: (todo: Todo) => void;
     removeTodo: (id: string) => void;
+    editTodo: (todo: Todo) => void;
   };
 }
 
@@ -25,6 +26,10 @@ const useTodoStore = create(
       removeTodo: (id) =>
         set((state) => {
           state.todos = state.todos.filter((item) => item.id !== id);
+        }),
+      editTodo: (todo) =>
+        set((state) => {
+          state.todos = state.todos.map((item) => (item.id === todo.id ? todo : item));
         }),
     },
   }))
